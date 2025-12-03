@@ -19,7 +19,6 @@ lines = read().splitlines()
 
 def find_biggest_digit(line, offset):
     biggest = 0
-
     for digit_to_find in [9, 8, 7, 6, 5, 4, 3, 2, 1]:
         if str(digit_to_find) in line[0:len(line)-offset]:
             biggest = digit_to_find
@@ -39,7 +38,10 @@ def find_biggest_sub_number(line, digits):
 
 
 sum = 0
+secondSum = 0
 for line in lines:
-    sum += find_biggest_sub_number(line, second_part_offset)
-print(f"answer: {sum}")
-print(f"Execution time: {round((time.time() - start_time) * 1000, 4)} ms")
+    sum += find_biggest_sub_number(line, first_part_offset)
+    secondSum += find_biggest_sub_number(line, second_part_offset)
+print(f"answer1: {sum}")
+print(f"answer2: {secondSum}")
+print(f"Execution time: {time.time() - start_time} seconds")
