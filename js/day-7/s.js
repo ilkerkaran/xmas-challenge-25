@@ -47,8 +47,9 @@ const p2 = lines => {
     cache.set(cacheKey, 1n)
     return 1n
   }
-
-  return move(path, 2)
+  const res = move(path, 2)
+  console.log('Cache size:', cache.size * 16, 'bytes')
+  return res
 }
 
 console.log('p1 Expected: 21, actual: ', p1(linesEx))
